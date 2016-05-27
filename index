@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>geojson point features from an external url and conversion of default to custom icons</title>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src='http://code.jquery.com/jquery-2.1.0.min.js'></script>
+</head>
+<body>
+<div id="map" style="width: 600px;height: 400px"></div>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+<script>
+var map = L.map('map').setView([4.6, 2.8], 5);
+mapLink = 
+'<a href="http://openstreetmap.org">openstreetmap</a>,'+'<a href="http://mapsnigeriainitiative.wordpress.com">mapsNi</a>';
+L.tileLayer(
+'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: ' &copy; ' + mapLink,
+maxZoom: 18
+}).addTo(map);
+
+
+$.getJSON("", function(data) {
+L.geoJson(data).addTo(map);
+});
+
+
+
+
+</script>
+</body>
+</html>
