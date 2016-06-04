@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Loading Geojson point features from an external URL</title>
+<link rel="stylesheet" href="
+http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script> 
+</head>
+<body>
+<div id="map" style="width: 600px;height: 400px"></div>
+<script>
+var map = L.map('map').setView([7.50, 3.45], 5);
+mapLink = '<a href="http://openstreetmap.org">openstreetmap</a>,'+
+'<a href="http://mapsnigeriainitiative.wordpress.com">mapsnigeriainitiative</a>';
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: ' &copy; ' + mapLink,maxZoom: 18}).addTo(map); 
+
+
+
+$.getJSON("https://rawgit.com/mayotunde/states/link/schools.geojson", function(data){
+ 
+L.geoJson(data, {
+onEachFeature: function(feature, layer){
+layer.bindPopup(feature.properties.Type + "<br>" + feature.properties.Category);
+}}).addTo(map);
+});
+</script>
+
+</body>
+</html>
