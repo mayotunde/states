@@ -20,7 +20,7 @@ attribution: ' &copy; ' + mapLink,
 maxZoom: 18
 }).addTo(map);
 
-var style = {fillcolor:'yellow',color:'red'}
+var style = {fillcolor:'#ae7',color:'black', fillOpacity: 0.6}
 
 $.getJSON("https://rawgit.com/mayotunde/states/link/northcentral.geojson", function(data) {
 L.geoJson(data, style).addTo(map);
