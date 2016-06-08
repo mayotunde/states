@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LeafletFileLayer Plugin</title>
+    <meta charset="utf-8" />
+    <link  rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link  rel="stylesheet" href="file:///C:/Users/user/Desktop/New folder (3)/Leaflet.FileLayer-gh-pages/Font-Awesome/font-awesome.min.css"
+    />
+<link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+  	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+ 
+<script
+        src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js">
+    </script>
+    <script
+        src="http://makinacorpus.github.io/Leaflet.FileLayer/leaflet.filelayer.js">
+    </script>
+    <script
+        src="http://makinacorpus.github.io/Leaflet.FileLayer/togeojson/togeojson.js">
+    </script>
+
+
+</head>
+<body>
+    <div id="map" style="width: 700px; height: 500px"></div>
+
+   
+    <script>
+        var map = L.map('map').setView([4.5, 2.9], 5);
+        mapLink = 
+            '<a href="http://openstreetmap.org">OpenStreetMap</a>,'+'<a href="http://mapsnigeriainitiative.wordpress.com">mapsNI</a>';
+        L.tileLayer(
+            'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink,
+            maxZoom: 18,
+            }).addTo(map);
+
+ 
+
+var style = {fillColor: 'red', color: 'black', fillOpacity: 0.5};
+        
+        L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open"></i>';
+       L.Control.fileLayerLoad({
+       layerOptions: {style,
+         fileSizeLimit: 1024}
+        }).addTo(map);
+
+    </script>
+<div id='logo' style='position:absolute;bottom:80px;left:20px;float:right';>
+<img src="https://lh3.googleusercontent.com/jY9fWF3HjY1NPeluF6LQDyDRL2zqGevA_IW0jKu5Z6GqsiSw6mHE_oCNDvGV_PnL_G6JFZKzZDHNqSHd6wS9F12GHCGpPiDU2yF2RK3ELBYotYSNMPOVUnyyobGCGKDA1Rc3Xga6vaxbx0MN3YR2WVvwW6avdpXMUZdZNAtBVPlV0famTCd-dXeHDmr53KNPQQNWLLM5Wgp3rUYvxbINhvTCnMlaUeHrp0Hab5BJaTB6SbabPpnPNPT1X3uvz6nQs3PgSbbG2pevw4Yn91DQI_kTuIcf7fmS39MdOm2LSFpB0wHgEvvlloLJfpXw0TvGjBpgZFeA8pIdmeoAr6q4aonVVkydr3WMN8v6DJ2DzFcfgYUHalxrDPoJTiZoh0U-qNTeUxc-kpXca8xlmO2EpZg4_SFbdZUU6ZNgQBiJoP99IwZ03Qzvp_0bdEbmigdzY8RLwP5riKHgotnXY4E71qS8yzlD8JvK4bK5ojBzvZvXlnfXDo0y82a8LJCHqjxbK3RbKDYZybb72d31gc-bpx6m1sKT24RnHZp2hq9FVbs=w80-h50-no" /><br>
+<small><a href="http://mapsnigeriainitiative.wordpress.com">mapsNI</a><small>
+</div>
+</body>
+</html>
+
